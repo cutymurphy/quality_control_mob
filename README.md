@@ -11,23 +11,30 @@
 ## Установка
 
 1. Клонируйте репозиторий:
+
    ```sh
-   git clone ...
-   cd quality_control
+   git clone https://github.com/cutymurphy/quality_control_mob.git
+   cd quality_control_mob
+
+   ```
 
 2. Установите зависимости:
-    ```sh
-    npm i
+   ```sh
+   npm i
+   ```
 
 ## Запуск проекта
 
-- npm start
+```sh
+   npm start
+```
 
 ## Коммиты
 
 Для обеспечения консистентности и качества коммитов используйте скрипт npm run commit. Этот скрипт предложит вам выбрать тип коммита и ввести описание.
 
 #### Типы коммитов
+
 - feat - Новая функциональность
 - fix - Исправление бага
 - debug - Отладка или устранение неполадок
@@ -62,23 +69,30 @@ This project is a mobile frontend application built using React.Native and TypeS
 ## Installation
 
 1. Clone the repository:
+
    ```sh
-   git clone ...
-   cd quality_control
+   git clone https://github.com/cutymurphy/quality_control_mob.git
+   cd quality_control_mob
+
+   ```
 
 2. Install the dependencies:
-    ```sh
-    npm i
+   ```sh
+   npm i
+   ```
 
 ## Running the Project
 
-- npm start
+```sh
+   npm start
+```
 
 ## Commits
 
 To ensure consistency and quality of commits, use the `npm run commit` script. This script will prompt you to choose the type of commit and enter a description.
 
 #### Commit Types
+
 - feat - A new feature
 - fix - A bug fix
 - debug - Debugging or troubleshooting

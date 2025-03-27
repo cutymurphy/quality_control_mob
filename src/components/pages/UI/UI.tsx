@@ -1,116 +1,69 @@
-import React, { useEffect } from "react";
-import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
-import Animated, {
-  interpolateColor,
-  LinearTransition,
-  useAnimatedStyle,
-  useSharedValue,
-  withTiming,
-} from "react-native-reanimated";
+import React from "react";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { IPaletteColor } from "./types";
-import { darkPalette, lightPalette } from "../../../constants/palette";
-import { usePalette, useTheme } from "../../../services";
+import { palette } from "../../../constants/palette";
 
 const UI = () => {
-  const { theme, toggleTheme } = useTheme();
-  const currentPalette = usePalette();
-  const modeValue = useSharedValue(0);
-
-  const palette: IPaletteColor[] = [
+  const paletteColors: IPaletteColor[] = [
     {
       id: 0,
       description: "Background color",
-      lightColor: lightPalette.background,
-      darkColor: darkPalette.background,
+      color: palette.background,
     },
     {
       id: 1,
       description: "Menu main color",
-      lightColor: lightPalette.menuMain,
-      darkColor: darkPalette.menuMain,
+      color: palette.menuMain,
     },
     {
       id: 2,
       description: "Menu contrast color, used to show up buttons",
-      lightColor: lightPalette.menuContrast,
-      darkColor: darkPalette.menuContrast,
+      color: palette.menuContrast,
     },
     {
       id: 3,
       description:
         "Defects contrast, depends on situation of camera. A little demo is on preview using slider gradient from #272945 to #CA5B5B",
-      lightColor: lightPalette.defectsContrast,
-      darkColor: darkPalette.defectsContrast,
+      color: palette.defectsContrast,
     },
     {
       id: 4,
       description:
         "Show more button, using slightly darker color to contrast it from the background",
-      lightColor: lightPalette.showMoreButton,
-      darkColor: darkPalette.showMoreButton,
+      color: palette.showMoreButton,
     },
     {
       id: 5,
       description: "Main text color",
-      lightColor: lightPalette.mainText,
-      darkColor: darkPalette.mainText,
+      color: palette.mainText,
     },
     {
       id: 6,
       description: "Sub text color",
-      lightColor: lightPalette.subText,
-      darkColor: darkPalette.subText,
+      color: palette.subText,
     },
   ];
 
-  useEffect(() => {
-    modeValue.value = withTiming(theme === "light" ? 0 : 1, { duration: 300 });
-  }, [theme]);
-
   return (
-    <ScrollView style={{ backgroundColor: currentPalette.background }}>
+    <ScrollView style={{ backgroundColor: palette.background }}>
       <View style={styles.container}>
-        <Pressable
-          style={[styles.button, { backgroundColor: currentPalette.menuMain }]}
-          onPress={toggleTheme}
-        >
-          <Text style={{ color: currentPalette.mainText }}>Toggle theme</Text>
-        </Pressable>
         <View style={styles.colors}>
-          {palette.map(
-            ({ id, description, lightColor, darkColor }: IPaletteColor) => {
-              const animatedStyle = useAnimatedStyle(() => ({
-                backgroundColor: interpolateColor(
-                  modeValue.value,
-                  [0, 1],
-                  [lightColor, darkColor]
-                ),
-              }));
-
-              return (
-                <View key={id} style={styles.colorContainer}>
-                  <Animated.View
-                    layout={LinearTransition}
-                    style={[
-                      styles.colorCircle,
-                      animatedStyle,
-                      {
-                        borderColor: currentPalette.mainText,
-                      },
-                    ]}
-                  ></Animated.View>
-                  <Text
-                    style={[
-                      styles.colorText,
-                      { color: currentPalette.mainText },
-                    ]}
-                  >
-                    {description}
-                  </Text>
-                </View>
-              );
-            }
-          )}
+          {paletteColors.map(({ id, description, color }: IPaletteColor) => (
+            <View key={id} style={styles.colorContainer}>
+              <View
+                style={[
+                  styles.colorCircle,
+                  {
+                    backgroundColor: color,
+                    borderColor: palette.mainText,
+                  },
+                ]}
+              ></View>
+              <Text style={[styles.colorText, { color: palette.mainText }]}>
+                {description}
+              </Text>
+            </View>
+          ))}
         </View>
       </View>
     </ScrollView>
@@ -124,12 +77,6 @@ const styles = StyleSheet.create({
     gap: 20,
     alignItems: "center",
     padding: 20,
-  },
-  button: {
-    width: "100%",
-    alignItems: "center",
-    padding: 8,
-    borderRadius: 8,
   },
   colors: {
     gap: 20,

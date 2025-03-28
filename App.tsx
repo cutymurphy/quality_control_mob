@@ -1,8 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Navigation } from "./src/navigation";
 import * as Font from "expo-font";
+import { View, StyleSheet, ActivityIndicator } from "react-native";
+import { palette } from "./src/constants/palette";
 
 const App = () => {
+  const [areFontsLoaded, setAreFontsLoaded] = useState<boolean>(false);
+
   useEffect(() => {
     const loadFont = async () => {
       await Font.loadAsync({
@@ -19,11 +23,30 @@ const App = () => {
         // eslint-disable-next-line @typescript-eslint/no-require-imports
         "Segoe-UI-400": require("./assets/fonts/Segoe UI Light.ttf"),
       });
+
+      setAreFontsLoaded(true);
     };
     loadFont();
   }, []);
 
+  if (!areFontsLoaded) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size={50} color={palette.mainText} />
+      </View>
+    );
+  }
+
   return <Navigation />;
 };
+
+const styles = StyleSheet.create({
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: palette.background,
+  },
+});
 
 export default App;

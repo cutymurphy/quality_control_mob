@@ -4,8 +4,6 @@ import { palette } from "../../../constants/palette";
 export const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: "black",
-    width: "100%",
     padding: 28,
   },
   waveWrapper: {
@@ -19,9 +17,6 @@ export const styles = StyleSheet.create({
   },
   solarIcon: {
     zIndex: 1,
-  },
-  scrollContainer: {
-    flexGrow: 1,
   },
   header: {
     flexDirection: "row",

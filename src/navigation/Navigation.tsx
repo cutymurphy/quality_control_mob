@@ -18,7 +18,7 @@ export const Navigation = () => {
         <NavigationContainer>
           <StatusBar barStyle="default" />
           <Stack.Navigator
-            screenOptions={{ animation: "fade", headerShown: false }}
+            screenOptions={{ animation: "none", headerShown: false }}
           >
             <Stack.Screen name={ERoutes.HOME} component={Home} />
             <Stack.Screen

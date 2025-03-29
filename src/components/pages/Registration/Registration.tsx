@@ -18,7 +18,7 @@ const Registration = ({ navigation }) => {
   return (
     <GradientPageTemplate>
       <View style={styles.wrapper}>
-        <Header />
+        <Header navigation={navigation} />
         <View style={styles.fields}>
           <Input
             label="ИНН"

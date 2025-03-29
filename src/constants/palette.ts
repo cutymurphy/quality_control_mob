@@ -39,7 +39,7 @@ export const palette = {
 
   // Main Screen Popups Section
   bgMainScreenPopup: baseColors.blue2,
-  textFieldBgMainScreenPopup: "#91AEFF",
+  textFieldBgMainScreenPopup: "#8DAEFF",
   activePointMainScreenPopup: baseColors.brightBlue,
   pointBgMainScreenPopup: baseColors.blue,
   selectFieldBgMainScreenPopup: baseColors.blue3,

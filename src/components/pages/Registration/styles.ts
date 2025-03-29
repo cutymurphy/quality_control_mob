@@ -68,6 +68,7 @@ export const styles = StyleSheet.create({
   checkboxText: {
     color: palette.mainText,
     lineHeight: 19,
+    flex: 1,
   },
   checkboxTextUnderlined: {
     textDecorationLine: "underline",

@@ -3,6 +3,7 @@ import { View, ScrollView } from "react-native";
 import RadialGradientBg from "../../atoms/RadialGradient";
 import { StyleSheet } from "react-native";
 import { screenHeight, screenWidth } from "../../../constants/screenSize";
+import { palette } from "../../../constants/palette";
 
 const GradientPageTemplate: FC<PropsWithChildren> = ({ children }) => (
   <View style={styles.container}>
@@ -16,7 +17,7 @@ const GradientPageTemplate: FC<PropsWithChildren> = ({ children }) => (
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "black",
+    backgroundColor: palette.background,
   },
   scrollContainer: {
     flexGrow: 1,

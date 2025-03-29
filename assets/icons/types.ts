@@ -1,4 +1,4 @@
-import { StyleProp, ViewStyle } from "react-native";
+import { GestureResponderEvent, StyleProp, ViewStyle } from "react-native";
 
 export interface IIcon {
   style?: StyleProp<ViewStyle>;
@@ -6,4 +6,5 @@ export interface IIcon {
   height?: number;
   width?: number;
   opacity?: number;
+  onClick?: (event: GestureResponderEvent) => void;
 }

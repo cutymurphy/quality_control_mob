@@ -1,13 +1,11 @@
 import React from "react";
 import { Pressable, Text, View } from "react-native";
 import { ERoutes } from "../../../navigation";
-import LogoIcon from "../../../../assets/icons/LogoIcon";
-import SolarPanelIcon from "../../../../assets/icons/SolarPanelIcon";
-import WaveIcon from "../../../../assets/icons/WaveIcon";
 import { styles } from "./styles";
 import HomeListPoint from "../../atoms/HomeListPoint/HomeListPoint";
 import GradientPageTemplate from "../../templates/GradientPageTemplate";
 import { screenWidth } from "../../../constants/screenSize";
+import { LogoIcon, SolarPanelIcon, WaveIcon } from "../../../../assets/icons";
 
 // eslint-disable-next-line react/prop-types
 const Home = ({ navigation }) => (
@@ -41,12 +39,17 @@ const Home = ({ navigation }) => (
           Улучшите свое производство с QWality
         </Text>
         <Pressable
-          style={styles.brightBlueBtn} // eslint-disable-next-line react/prop-types
-          onPressOut={() => navigation.navigate(ERoutes.UI)}
+          style={styles.brightBlueBtn}
+          // eslint-disable-next-line react/prop-types
+          onPressOut={() => navigation.navigate(ERoutes.REGISTRATION)}
         >
           <Text style={styles.brightBlueBtnText}>Зарегистрироваться</Text>
         </Pressable>
-        <Pressable style={styles.blueBtn}>
+        <Pressable
+          style={styles.blueBtn}
+          // eslint-disable-next-line react/prop-types
+          onPressOut={() => navigation.navigate(ERoutes.UI)}
+        >
           <Text style={styles.blueBtnText}>Уже есть аккаунт? Войти</Text>
         </Pressable>
       </View>

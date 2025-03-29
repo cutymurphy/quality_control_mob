@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import { palette } from "../../../constants/palette";
+import { fonts } from "../../../constants/fonts";
 
 export const styles = StyleSheet.create({
   wrapper: {
@@ -27,7 +28,7 @@ export const styles = StyleSheet.create({
   },
   headerTitle: {
     color: palette.mainText,
-    fontFamily: "Segoe-UI-900",
+    fontFamily: fonts.default_900,
     fontSize: 22,
     lineHeight: 30,
     width: "65%",
@@ -44,7 +45,7 @@ export const styles = StyleSheet.create({
   welcomeText: {
     width: "90%",
     color: palette.mainText,
-    fontFamily: "Segoe-UI-800",
+    fontFamily: fonts.default_800,
     fontSize: 16,
     lineHeight: 21,
     marginBottom: 16,
@@ -62,7 +63,7 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     width: 200,
     color: "rgba(255, 255, 255, 0.7)",
-    fontFamily: "Segoe-UI-800",
+    fontFamily: fonts.default_800,
     fontSize: 14,
     lineHeight: 19,
   },
@@ -75,7 +76,7 @@ export const styles = StyleSheet.create({
   brightBlueBtnText: {
     fontSize: 20,
     lineHeight: 27,
-    fontFamily: "Segoe-UI-900",
+    fontFamily: fonts.default_900,
     color: palette.mainText,
     textAlign: "center",
   },
@@ -88,7 +89,7 @@ export const styles = StyleSheet.create({
   blueBtnText: {
     fontSize: 16,
     lineHeight: 22,
-    fontFamily: "Segoe-UI-900",
+    fontFamily: fonts.default_900,
     color: "rgba(255, 255, 255, 0.8)",
     textAlign: "center",
   },

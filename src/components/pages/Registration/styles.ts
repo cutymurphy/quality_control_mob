@@ -5,4 +5,10 @@ export const styles = StyleSheet.create({
     flex: 1,
     padding: 28,
   },
+  fields: {
+    paddingTop: 36,
+    paddingBottom: 52,
+    paddingHorizontal: 12,
+    gap: 12,
+  },
 });

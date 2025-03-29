@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import Svg, { Defs, RadialGradient, Rect, Stop } from "react-native-svg";
+import Svg, { Defs, Path, RadialGradient, Stop } from "react-native-svg";
 import { IRadialGradientBg } from "./types";
 
 const RadialGradientBg: FC<IRadialGradientBg> = ({
@@ -10,28 +10,23 @@ const RadialGradientBg: FC<IRadialGradientBg> = ({
     <Svg
       width={screenWidth}
       height={screenHeight}
-      style={{ position: "absolute", top: 0, left: 0 }}
+      fill="none"
+      style={{ position: "absolute", top: 0, left: 0, bottom: 0, right: 0 }}
     >
+      <Path fill="url(#a)" d="M0 0h412v917H0z" />
       <Defs>
         <RadialGradient
-          id="gradient"
-          cx="100%"
-          cy="0%"
-          r="115.05%"
+          id="a"
+          cx={0}
+          cy={0}
+          r={1}
+          gradientTransform="rotate(120.075 206 118.754)scale(945.843 424.959)"
           gradientUnits="userSpaceOnUse"
-          gradientTransform="scale(1, 0.8926)"
         >
-          <Stop offset="0%" stopColor="#4DEDFF" />
-          <Stop offset="100%" stopColor="#053D8F" />
+          <Stop stopColor="#4DEDFF" />
+          <Stop offset={1} stopColor="#053D8F" />
         </RadialGradient>
       </Defs>
-      <Rect
-        x="0"
-        y="0"
-        width={screenWidth}
-        height={screenHeight}
-        fill="url(#gradient)"
-      />
     </Svg>
   );
 };

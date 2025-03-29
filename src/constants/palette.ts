@@ -8,6 +8,7 @@ export const palette = {
   subText: "#D4D4D4",
 
   white: "#FFFFFF",
+  black: "#000000",
   brightBlue: "#00E5FF",
   brightBlue2: "#00C8FF",
   blue: "#1574E0",

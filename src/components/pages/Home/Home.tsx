@@ -1,5 +1,5 @@
 import React from "react";
-import { Pressable, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import { ERoutes } from "../../../navigation";
 import { styles } from "./styles";
 import HomeListPoint from "../../atoms/HomeListPoint/HomeListPoint";

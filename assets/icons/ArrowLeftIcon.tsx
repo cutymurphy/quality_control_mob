@@ -5,7 +5,7 @@ import { IIcon } from "./types";
 import { palette } from "../../src/constants/palette";
 import { Pressable } from "react-native";
 
-const ArrowLeft: FC<IIcon> = ({ color = palette.white, style, onClick }) => (
+const ArrowLeftIcon: FC<IIcon> = ({ color = palette.white, style, onClick }) => (
   <Pressable onPress={onClick}>
     <Svg width={18} height={26} fill="none" viewBox="0 0 18 26" style={style}>
       <Path
@@ -17,4 +17,4 @@ const ArrowLeft: FC<IIcon> = ({ color = palette.white, style, onClick }) => (
     </Svg>
   </Pressable>
 );
-export default ArrowLeft;
+export default ArrowLeftIcon;

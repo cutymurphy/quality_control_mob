@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import Svg, { Defs, Path, RadialGradient, Stop } from "react-native-svg";
 import { IRadialGradientBg } from "./types";
+import { palette } from "../../../constants/palette";
 
 const RadialGradientBg: FC<IRadialGradientBg> = ({
   screenWidth,
@@ -23,8 +24,8 @@ const RadialGradientBg: FC<IRadialGradientBg> = ({
           gradientTransform="rotate(120.075 206 118.754)scale(945.843 424.959)"
           gradientUnits="userSpaceOnUse"
         >
-          <Stop stopColor="#4DEDFF" />
-          <Stop offset={1} stopColor="#053D8F" />
+          <Stop stopColor={palette.gradientLightBlueColor} />
+          <Stop offset={1} stopColor={palette.gradientBlueColor} />
         </RadialGradient>
       </Defs>
     </Svg>

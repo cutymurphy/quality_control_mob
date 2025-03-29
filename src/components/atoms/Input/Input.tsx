@@ -24,7 +24,6 @@ const Input: FC<IInput> = ({
         onChangeText={onChangeText}
         value={value}
         placeholder={placeholder}
-        placeholderTextColor={palette.brightBlue}
         keyboardType={keyboardType}
         keyboardAppearance={keyboardAppearance}
         inputMode={inputMode}

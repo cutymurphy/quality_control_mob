@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     gap: 2,
   },
   label: {
-    color: palette.mainText,
+    color: palette.mainTextColor,
     fontFamily: fonts.default_500,
     fontSize: 14,
     lineHeight: 19,

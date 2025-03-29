@@ -32,7 +32,7 @@ const App = () => {
   if (!areFontsLoaded) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size={50} color={palette.mainText} />
+        <ActivityIndicator size={50} color={palette.white} />
       </View>
     );
   }
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: palette.background,
+    backgroundColor: palette.bgColor,
   },
 });
 

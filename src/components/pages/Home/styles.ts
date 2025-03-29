@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
     zIndex: 1,
   },
   headerTitle: {
-    color: palette.mainText,
+    color: palette.welcomeScreenMainTextColor,
     fontFamily: fonts.default_900,
     fontSize: 22,
     lineHeight: 30,
@@ -44,7 +44,7 @@ export const styles = StyleSheet.create({
   },
   welcomeText: {
     width: "90%",
-    color: palette.mainText,
+    color: palette.welcomeScreenMainTextColor,
     fontFamily: fonts.default_800,
     fontSize: 16,
     lineHeight: 21,
@@ -62,7 +62,7 @@ export const styles = StyleSheet.create({
   improveText: {
     textAlign: "center",
     width: 200,
-    color: "rgba(255, 255, 255, 0.7)",
+    color: palette.welcomeScreenImproveTextColor,
     fontFamily: fonts.default_800,
     fontSize: 14,
     lineHeight: 19,
@@ -70,27 +70,27 @@ export const styles = StyleSheet.create({
   brightBlueBtn: {
     padding: 8,
     borderRadius: 14,
-    backgroundColor: palette.brightBlue2,
+    backgroundColor: palette.welcomeScreenContrastBtnColor,
     width: "86%",
   },
   brightBlueBtnText: {
     fontSize: 20,
     lineHeight: 27,
     fontFamily: fonts.default_900,
-    color: palette.mainText,
+    color: palette.welcomeScreenMainTextColor,
     textAlign: "center",
   },
   blueBtn: {
     padding: 8,
     borderRadius: 14,
-    backgroundColor: palette.blue,
+    backgroundColor: palette.welcomeScreenSubBtnColor,
     width: "74%",
   },
   blueBtnText: {
     fontSize: 16,
     lineHeight: 22,
     fontFamily: fonts.default_900,
-    color: "rgba(255, 255, 255, 0.8)",
+    color: palette.welcomeScreenSubTextColor,
     textAlign: "center",
   },
 });

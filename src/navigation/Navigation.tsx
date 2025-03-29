@@ -2,7 +2,6 @@ import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import Home from "../components/pages/Home";
-import UI from "../components/pages/UI";
 import { ERoutes } from "./routes";
 import AnotherPage from "../components/pages/AnotherPage";
 import Registration from "../components/pages/Registration";
@@ -26,7 +25,6 @@ export const Navigation = () => {
               name={ERoutes.REGISTRATION}
               component={Registration}
             />
-            <Stack.Screen name={ERoutes.UI} component={UI} />
             <Stack.Screen name={ERoutes.ANOTHER} component={AnotherPage} />
           </Stack.Navigator>
         </NavigationContainer>
@@ -38,6 +36,6 @@ export const Navigation = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: palette.background,
+    backgroundColor: palette.bgColor,
   },
 });

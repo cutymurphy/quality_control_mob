@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     transform: [{ translateX: "-50%" }],
   },
   headerText: {
-    color: palette.mainText,
+    color: palette.mainTextColor,
     fontFamily: fonts.default_800,
     fontSize: 20,
     lineHeight: 27,

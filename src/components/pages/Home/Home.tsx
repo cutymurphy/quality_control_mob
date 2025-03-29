@@ -45,11 +45,7 @@ const Home = ({ navigation }) => (
         >
           <Text style={styles.brightBlueBtnText}>Зарегистрироваться</Text>
         </Pressable>
-        <Pressable
-          style={styles.blueBtn}
-          // eslint-disable-next-line react/prop-types
-          onPressOut={() => navigation.navigate(ERoutes.UI)}
-        >
+        <Pressable style={styles.blueBtn} onPressOut={() => {}}>
           <Text style={styles.blueBtnText}>Уже есть аккаунт? Войти</Text>
         </Pressable>
       </View>

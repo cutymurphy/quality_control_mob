@@ -71,6 +71,7 @@ export const styles = StyleSheet.create({
     padding: 8,
     borderRadius: 14,
     width: "86%",
+    minWidth: "70%",
   },
   brightBlueBtnText: {
     fontSize: 20,
@@ -82,6 +83,7 @@ export const styles = StyleSheet.create({
     padding: 8,
     borderRadius: 14,
     width: "74%",
+    minWidth: "60%",
   },
   blueBtnText: {
     fontSize: 16,

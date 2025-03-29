@@ -6,6 +6,7 @@ import HomeListPoint from "../../atoms/HomeListPoint/HomeListPoint";
 import GradientPageTemplate from "../../templates/GradientPageTemplate";
 import { screenWidth } from "../../../constants/screenSize";
 import { LogoIcon, SolarPanelIcon, WaveIcon } from "../../../../assets/icons";
+import Button from "../../atoms/Button";
 
 // eslint-disable-next-line react/prop-types
 const Home = ({ navigation }) => (
@@ -38,16 +39,21 @@ const Home = ({ navigation }) => (
         <Text style={styles.improveText}>
           Улучшите свое производство с QWality
         </Text>
-        <Pressable
+        <Button
+          color="welcomeBrightBlue"
           style={styles.brightBlueBtn}
           // eslint-disable-next-line react/prop-types
-          onPressOut={() => navigation.navigate(ERoutes.REGISTRATION)}
+          onPress={() => navigation.navigate(ERoutes.REGISTRATION)}
         >
           <Text style={styles.brightBlueBtnText}>Зарегистрироваться</Text>
-        </Pressable>
-        <Pressable style={styles.blueBtn} onPressOut={() => {}}>
+        </Button>
+        <Button
+          color="welcomeBlue"
+          style={styles.blueBtn}
+          onPress={() => {}}
+        >
           <Text style={styles.blueBtnText}>Уже есть аккаунт? Войти</Text>
-        </Pressable>
+        </Button>
       </View>
     </View>
   </GradientPageTemplate>

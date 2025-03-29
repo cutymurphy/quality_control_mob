@@ -70,7 +70,6 @@ export const styles = StyleSheet.create({
   brightBlueBtn: {
     padding: 8,
     borderRadius: 14,
-    backgroundColor: palette.welcomeScreenContrastBtn,
     width: "86%",
   },
   brightBlueBtnText: {
@@ -78,12 +77,10 @@ export const styles = StyleSheet.create({
     lineHeight: 27,
     fontFamily: fonts.default_900,
     color: palette.welcomeScreenMainText,
-    textAlign: "center",
   },
   blueBtn: {
     padding: 8,
     borderRadius: 14,
-    backgroundColor: palette.welcomeScreenSubBtn,
     width: "74%",
   },
   blueBtnText: {
@@ -91,6 +88,5 @@ export const styles = StyleSheet.create({
     lineHeight: 22,
     fontFamily: fonts.default_900,
     color: palette.welcomeScreenSubText,
-    textAlign: "center",
   },
 });

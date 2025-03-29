@@ -9,8 +9,8 @@ const HomeListPoint: FC<IHomeListPoint> = ({ text }) => {
   return (
     <LinearGradient
       colors={[
-        palette.welcomeScreenGradientDarkColor,
-        palette.welcomeScreenGradientLightColor,
+        palette.welcomeScreenGradientDark,
+        palette.welcomeScreenGradientLight,
       ]}
       start={{ x: 0, y: 0.5 }}
       end={{ x: 1, y: 0.5 }}

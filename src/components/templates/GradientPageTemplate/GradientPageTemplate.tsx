@@ -17,7 +17,7 @@ const GradientPageTemplate: FC<PropsWithChildren> = ({ children }) => (
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: palette.bgColor,
+    backgroundColor: palette.bg,
   },
   scrollContainer: {
     flexGrow: 1,

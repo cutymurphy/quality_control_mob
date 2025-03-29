@@ -24,8 +24,8 @@ const RadialGradientBg: FC<IRadialGradientBg> = ({
           gradientTransform="rotate(120.075 206 118.754)scale(945.843 424.959)"
           gradientUnits="userSpaceOnUse"
         >
-          <Stop stopColor={palette.gradientLightBlueColor} />
-          <Stop offset={1} stopColor={palette.gradientBlueColor} />
+          <Stop stopColor={palette.gradientLightBlue} />
+          <Stop offset={1} stopColor={palette.gradientBlue} />
         </RadialGradient>
       </Defs>
     </Svg>

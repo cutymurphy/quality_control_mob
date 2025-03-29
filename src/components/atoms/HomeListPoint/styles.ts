@@ -19,10 +19,10 @@ export const styles = StyleSheet.create({
     height: 13,
     borderRadius: 50,
     opacity: 80,
-    backgroundColor: palette.welcomeScreenPointColor,
+    backgroundColor: palette.welcomeScreenPoint,
   },
   listPointText: {
-    color: palette.welcomeScreenMainTextColor,
+    color: palette.welcomeScreenMainText,
     fontFamily: fonts.default_800,
     fontSize: 16,
     lineHeight: 21,

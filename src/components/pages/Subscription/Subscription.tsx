@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Dimensions, FlatList, Text, View } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import GradientPageTemplate from "../../templates/GradientPageTemplate";
 import Header from "../../molecules/Header";
 import { styles } from "./styles";
@@ -7,10 +7,12 @@ import SliderCard from "../../organisms/SliderCard";
 import { slidersInfo } from "./types";
 import Button from "../../atoms/Button";
 import { ArrowLeftIcon, ArrowRightIcon } from "../../../../assets/icons";
+import { screenWidth } from "../../../constants/screenSize";
+import { useTypedNavigation } from "../../../hooks/useTypedNavigation";
 
 const Subscription = () => {
+  const { navigate } = useTypedNavigation();
   const [currentSlide, setCurrentSlide] = useState<number>(0);
-  const { width } = Dimensions.get("screen");
   const flatListRef = useRef<FlatList>(null);
 
   const scrollToIndex = (index: number) => {
@@ -41,6 +43,11 @@ const Subscription = () => {
                 description={item.description}
                 radioLabels={item.radioLabels}
                 price={item.price}
+                onPress={() => {
+                  if (currentSlide === 0) {
+                    navigate("Profile");
+                  }
+                }}
               />
             )}
             keyExtractor={({ id }) => id.toString()}
@@ -50,8 +57,8 @@ const Subscription = () => {
             scrollEnabled={false}
             initialScrollIndex={currentSlide}
             getItemLayout={(_, index) => ({
-              length: width,
-              offset: width * index,
+              length: screenWidth,
+              offset: screenWidth * index,
               index,
             })}
           />

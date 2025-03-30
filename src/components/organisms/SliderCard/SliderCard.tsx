@@ -1,9 +1,10 @@
 import React, { FC } from "react";
 import { ISliderCard } from "./types";
-import { Dimensions, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import { styles } from "./styles";
 import Radio from "../../atoms/Radio";
 import Button from "../../atoms/Button";
+import { screenHeight, screenWidth } from "../../../constants/screenSize";
 
 const SliderCard: FC<ISliderCard> = ({
   id,
@@ -11,12 +12,12 @@ const SliderCard: FC<ISliderCard> = ({
   description,
   radioLabels,
   price,
+  onPress,
 }) => {
-  const { width, height } = Dimensions.get("screen");
-  const isSmallHeight = height < 700;
+  const isSmallHeight = screenHeight < 700;
 
   return (
-    <View style={{ width }} key={id}>
+    <View style={{ width: screenWidth }} key={id}>
       <View style={[styles.card, { paddingVertical: isSmallHeight ? 16 : 20 }]}>
         <View style={styles.topView}>
           <Text style={styles.title}>{title}</Text>
@@ -41,7 +42,11 @@ const SliderCard: FC<ISliderCard> = ({
         </View>
         <View style={styles.bottomView}>
           <Text style={styles.price}>{price} руб. в месяц</Text>
-          <Button color="welcomeBrightBlue" style={styles.btn}>
+          <Button
+            color="welcomeBrightBlue"
+            style={styles.btn}
+            onPress={onPress}
+          >
             <Text style={styles.btnText}>Выбрать</Text>
           </Button>
         </View>

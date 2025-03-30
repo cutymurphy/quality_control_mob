@@ -12,4 +12,5 @@ export type TypeRootStackParamList = {
   Login: undefined;
   ForgotPassword: undefined;
   Subscription: undefined;
+  Profile: undefined;
 };

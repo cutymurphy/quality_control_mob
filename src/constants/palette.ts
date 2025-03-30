@@ -59,4 +59,6 @@ export const palette = {
   folderOrHighlightedSectionBg: baseColors.darkBlue,
   textFieldInFolderBg: "#6289ED",
   modalBtns: "#8DAEFF",
+  sectionTransparentText: "rgba(255, 255, 255, 0.75)",
+  supportTransparentText: "rgba(255, 255, 255, 0.6)",
 };

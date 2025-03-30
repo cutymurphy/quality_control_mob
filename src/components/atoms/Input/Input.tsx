@@ -8,6 +8,7 @@ const Input: FC<IInput> = ({
   value,
   label,
   customStyles,
+  customInputStyles,
   onChangeText,
   placeholder,
   keyboardType = "default",
@@ -20,7 +21,7 @@ const Input: FC<IInput> = ({
     <View style={[styles.container, customStyles]}>
       {label && <Text style={styles.label}>{label}</Text>}
       <TextInput
-        style={styles.input}
+        style={[styles.input, customInputStyles]}
         onChangeText={onChangeText}
         value={value}
         placeholder={placeholder}

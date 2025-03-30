@@ -9,6 +9,7 @@ export interface IInput {
   value?: string;
   label?: string;
   customStyles?: StyleProp<TextStyle>;
+  customInputStyles?: StyleProp<TextStyle>;
   onChangeText?: (text: string) => void;
   placeholder?: string;
   keyboardType?: KeyboardTypeOptions;

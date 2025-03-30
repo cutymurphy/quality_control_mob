@@ -22,6 +22,7 @@ export const styles = StyleSheet.create({
     alignItems: "flex-end",
   },
   confirmationInput: {
+    width: "50%",
     flex: 1,
   },
   codeBtn: {

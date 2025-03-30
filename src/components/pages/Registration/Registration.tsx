@@ -26,6 +26,7 @@ const Registration = ({ navigation }) => {
             onChangeText={(text) => setInn(text === "" ? null : +text)}
             inputMode="numeric"
             maxLength={12}
+            keyboardType="numeric"
           />
           <Input
             label="Почта"
@@ -40,6 +41,7 @@ const Registration = ({ navigation }) => {
               value={code?.toString()}
               onChangeText={(text) => setCode(text === "" ? null : +text)}
               inputMode="numeric"
+              keyboardType="numeric"
               maxLength={6}
               customStyles={styles.confirmationInput}
             />

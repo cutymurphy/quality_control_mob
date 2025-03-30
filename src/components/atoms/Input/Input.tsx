@@ -17,10 +17,10 @@ const Input: FC<IInput> = ({
   secureTextEntry = false,
 }) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, customStyles]}>
       {label && <Text style={styles.label}>{label}</Text>}
       <TextInput
-        style={[styles.input, customStyles]}
+        style={styles.input}
         onChangeText={onChangeText}
         value={value}
         placeholder={placeholder}

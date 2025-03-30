@@ -10,7 +10,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from "../../../../assets/icons";
 
 const Subscription = () => {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
-  const { width, height } = Dimensions.get("screen");
+  const { width } = Dimensions.get("screen");
   const flatListRef = useRef<FlatList>(null);
 
   const scrollToIndex = (index: number) => {

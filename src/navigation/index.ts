@@ -1,2 +1,2 @@
 export { Navigation } from "./Navigation";
-export { ERoutes } from "./routes";
+export { TypeRootStackParamList } from "./types";

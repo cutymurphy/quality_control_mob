@@ -1,18 +1,13 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
-import Home from "../components/pages/Home";
-import { ERoutes } from "./routes";
-import AnotherPage from "../components/pages/AnotherPage";
-import Registration from "../components/pages/Registration";
+import { routes } from "./routes";
 import { StyleSheet, StatusBar } from "react-native";
 import { palette } from "../constants/palette";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import Login from "../components/pages/Login";
-import ForgotPassword from "../components/pages/ForgotPassword";
-import Subscription from "../components/pages/Subscription";
+import { TypeRootStackParamList } from "./types";
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<TypeRootStackParamList>();
 
 export const Navigation = () => {
   return (
@@ -23,21 +18,9 @@ export const Navigation = () => {
           <Stack.Navigator
             screenOptions={{ animation: "none", headerShown: false }}
           >
-            <Stack.Screen name={ERoutes.HOME} component={Home} />
-            <Stack.Screen
-              name={ERoutes.REGISTRATION}
-              component={Registration}
-            />
-            <Stack.Screen name={ERoutes.LOGIN} component={Login} />
-            <Stack.Screen
-              name={ERoutes.FORGOT_PASSWORD}
-              component={ForgotPassword}
-            />
-            <Stack.Screen
-              name={ERoutes.SUBSCRIPTION}
-              component={Subscription}
-            />
-            <Stack.Screen name={ERoutes.ANOTHER} component={AnotherPage} />
+            {routes.map((route) => (
+              <Stack.Screen key={route.name} {...route} />
+            ))}
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaView>

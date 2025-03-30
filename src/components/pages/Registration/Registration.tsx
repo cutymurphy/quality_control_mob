@@ -6,10 +6,11 @@ import Header from "../../molecules/Header";
 import Input from "../../atoms/Input";
 import Button from "../../atoms/Button";
 import { CheckIcon } from "../../../../assets/icons";
-import { ERoutes } from "../../../navigation";
+import { useTypedNavigation } from "../../../hooks/useTypedNavigation";
 
-// eslint-disable-next-line react/prop-types
-const Registration = ({ navigation }) => {
+const Registration = () => {
+  const { navigate } = useTypedNavigation();
+
   const [inn, setInn] = useState<number | null>();
   const [email, setEmail] = useState<string>("");
   const [code, setCode] = useState<number | null>();
@@ -19,11 +20,7 @@ const Registration = ({ navigation }) => {
   return (
     <GradientPageTemplate>
       <View style={styles.wrapper}>
-        <Header
-          headerText="Регистрация"
-          // eslint-disable-next-line react/prop-types
-          onClick={() => navigation.navigate(ERoutes.HOME)}
-        />
+        <Header headerText="Регистрация" onClick={() => navigate("Home")} />
         <View style={styles.fields}>
           <Input
             label="ИНН"
@@ -65,8 +62,7 @@ const Registration = ({ navigation }) => {
         <Button
           color="welcomeBrightBlue"
           style={styles.createBtn}
-          // eslint-disable-next-line react/prop-types
-          onPress={() => navigation.navigate(ERoutes.SUBSCRIPTION)}
+          onPress={() => navigate("Subscription")}
         >
           <Text style={styles.createBtnText}>Создать аккаунт</Text>
         </Button>

@@ -5,10 +5,10 @@ import GradientPageTemplate from "../../templates/GradientPageTemplate";
 import Header from "../../molecules/Header";
 import Input from "../../atoms/Input";
 import Button from "../../atoms/Button";
-import { ERoutes } from "../../../navigation";
+import { useTypedNavigation } from "../../../hooks/useTypedNavigation";
 
-// eslint-disable-next-line react/prop-types
-const ForgotPassword = ({ navigation }) => {
+const ForgotPassword = () => {
+  const { navigate } = useTypedNavigation();
   const [email, setEmail] = useState<string>("");
   const [code, setCode] = useState<number | null>();
   const [password, setPassword] = useState<string>("");
@@ -18,8 +18,7 @@ const ForgotPassword = ({ navigation }) => {
       <View style={styles.wrapper}>
         <Header
           headerText="Восстановление пароля"
-          // eslint-disable-next-line react/prop-types
-          onClick={() => navigation.navigate(ERoutes.LOGIN)}
+          onClick={() => navigate("Login")}
         />
         <View style={styles.fields}>
           <Input

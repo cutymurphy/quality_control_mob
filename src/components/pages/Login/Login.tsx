@@ -5,21 +5,17 @@ import GradientPageTemplate from "../../templates/GradientPageTemplate";
 import Header from "../../molecules/Header";
 import Input from "../../atoms/Input";
 import Button from "../../atoms/Button";
-import { ERoutes } from "../../../navigation";
+import { useTypedNavigation } from "../../../hooks/useTypedNavigation";
 
-// eslint-disable-next-line react/prop-types
-const Login = ({ navigation }) => {
+const Login = () => {
+  const { navigate } = useTypedNavigation();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   return (
     <GradientPageTemplate>
       <View style={styles.wrapper}>
-        <Header
-          headerText="Вход в аккаунт"
-          // eslint-disable-next-line react/prop-types
-          onClick={() => navigation.navigate(ERoutes.HOME)}
-        />
+        <Header headerText="Вход в аккаунт" onClick={() => navigate("Home")} />
         <View style={styles.fields}>
           <Input
             label="Почта / логин"
@@ -39,10 +35,7 @@ const Login = ({ navigation }) => {
         <Button color="welcomeBrightBlue" style={styles.loginBtn}>
           <Text style={styles.loginBtnText}>Войти</Text>
         </Button>
-        <Pressable
-          // eslint-disable-next-line react/prop-types
-          onPress={() => navigation.navigate(ERoutes.FORGOT_PASSWORD)}
-        >
+        <Pressable onPress={() => navigate("ForgotPassword")}>
           <Text style={styles.textUnderlined}>Забыли пароль?</Text>
         </Pressable>
       </View>

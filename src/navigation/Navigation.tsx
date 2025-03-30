@@ -9,6 +9,7 @@ import { StyleSheet, StatusBar } from "react-native";
 import { palette } from "../constants/palette";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import Login from "../components/pages/Login";
+import ForgotPassword from "../components/pages/ForgotPassword";
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +28,10 @@ export const Navigation = () => {
               component={Registration}
             />
             <Stack.Screen name={ERoutes.LOGIN} component={Login} />
+            <Stack.Screen
+              name={ERoutes.FORGOT_PASSWORD}
+              component={ForgotPassword}
+            />
             <Stack.Screen name={ERoutes.ANOTHER} component={AnotherPage} />
           </Stack.Navigator>
         </NavigationContainer>

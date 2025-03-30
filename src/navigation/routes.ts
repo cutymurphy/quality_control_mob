@@ -3,4 +3,5 @@ export enum ERoutes {
   ANOTHER = "Another",
   REGISTRATION = "Registration",
   LOGIN = "Login",
+  FORGOT_PASSWORD = "ForgotPassword",
 }

@@ -35,43 +35,17 @@ export const styles = StyleSheet.create({
     color: palette.mainText,
     lineHeight: 19,
   },
-  createBtn: {
+  changeBtn: {
     height: 34,
     borderRadius: 8,
     width: "90%",
     minWidth: "80%",
+    marginBottom: 12,
   },
-  createBtnText: {
+  changeBtnText: {
     color: palette.mainText,
     fontSize: 18,
     lineHeight: 24,
     fontFamily: fonts.default_800,
-  },
-  checkboxWrapper: {
-    width: "100%",
-    paddingRight: 12,
-    paddingLeft: 20,
-    marginTop: 20,
-  },
-  checkbox: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 12,
-  },
-  checkboxContainer: {
-    width: 18,
-    height: 18,
-    backgroundColor: palette.white,
-    borderRadius: 6,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  checkboxText: {
-    color: palette.mainText,
-    lineHeight: 19,
-    flex: 1,
-  },
-  checkboxTextUnderlined: {
-    textDecorationLine: "underline",
   },
 });

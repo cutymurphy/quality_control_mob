@@ -50,7 +50,8 @@ const Home = ({ navigation }) => (
         <Button
           color="welcomeBlue"
           style={styles.blueBtn}
-          onPress={() => {}}
+          // eslint-disable-next-line react/prop-types
+          onPress={() => navigation.navigate(ERoutes.LOGIN)}
         >
           <Text style={styles.blueBtnText}>Уже есть аккаунт? Войти</Text>
         </Button>

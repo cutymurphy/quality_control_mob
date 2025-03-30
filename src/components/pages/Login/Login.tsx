@@ -18,7 +18,7 @@ const Login = ({ navigation }) => {
         <Header
           headerText="Вход в аккаунт"
           // eslint-disable-next-line react/prop-types
-          onClick={() => navigation.navigate(ERoutes.REGISTRATION)}
+          onClick={() => navigation.navigate(ERoutes.HOME)}
         />
         <View style={styles.fields}>
           <Input
@@ -41,7 +41,7 @@ const Login = ({ navigation }) => {
         </Button>
         <Pressable
           // eslint-disable-next-line react/prop-types
-          onPress={() => navigation.navigate(ERoutes.HOME)}
+          onPress={() => navigation.navigate(ERoutes.FORGOT_PASSWORD)}
         >
           <Text style={styles.textUnderlined}>Забыли пароль?</Text>
         </Pressable>

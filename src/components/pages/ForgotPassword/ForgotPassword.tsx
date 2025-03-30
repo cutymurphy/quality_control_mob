@@ -1,38 +1,27 @@
 import React, { useState } from "react";
-import { Pressable, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import { styles } from "./styles";
 import GradientPageTemplate from "../../templates/GradientPageTemplate";
 import Header from "../../molecules/Header";
 import Input from "../../atoms/Input";
 import Button from "../../atoms/Button";
-import { CheckIcon } from "../../../../assets/icons";
 import { ERoutes } from "../../../navigation";
 
 // eslint-disable-next-line react/prop-types
-const Registration = ({ navigation }) => {
-  const [inn, setInn] = useState<number | null>();
+const ForgotPassword = ({ navigation }) => {
   const [email, setEmail] = useState<string>("");
   const [code, setCode] = useState<number | null>();
   const [password, setPassword] = useState<string>("");
-  const [isChecked, setIsChecked] = useState<boolean>(false);
 
   return (
     <GradientPageTemplate>
       <View style={styles.wrapper}>
         <Header
-          headerText="Регистрация"
+          headerText="Восстановление пароля"
           // eslint-disable-next-line react/prop-types
-          onClick={() => navigation.navigate(ERoutes.HOME)}
+          onClick={() => navigation.navigate(ERoutes.LOGIN)}
         />
         <View style={styles.fields}>
-          <Input
-            label="ИНН"
-            value={inn?.toString()}
-            onChangeText={(text) => setInn(text === "" ? null : +text)}
-            inputMode="numeric"
-            maxLength={12}
-            keyboardType="numeric"
-          />
           <Input
             label="Почта"
             value={email}
@@ -55,39 +44,19 @@ const Registration = ({ navigation }) => {
             </Button>
           </View>
           <Input
-            label="Пароль"
+            label="Новый пароль"
             value={password}
             onChangeText={(text) => setPassword(text)}
             inputMode="text"
             secureTextEntry
           />
         </View>
-        <Button
-          color="welcomeBrightBlue"
-          style={styles.createBtn}
-          onPress={() => {}}
-        >
-          <Text style={styles.createBtnText}>Создать аккаунт</Text>
+        <Button color="welcomeBrightBlue" style={styles.changeBtn}>
+          <Text style={styles.changeBtnText}>Изменить пароль</Text>
         </Button>
-        <View style={styles.checkboxWrapper}>
-          <Pressable
-            onPress={() => setIsChecked(!isChecked)}
-            style={styles.checkbox}
-          >
-            <View style={styles.checkboxContainer}>
-              {isChecked && <CheckIcon />}
-            </View>
-            <Text style={styles.checkboxText}>
-              Я принимаю{" "}
-              <Text style={styles.checkboxTextUnderlined}>
-                условия пользовательского соглашения
-              </Text>
-            </Text>
-          </Pressable>
-        </View>
       </View>
     </GradientPageTemplate>
   );
 };
 
-export default Registration;
+export default ForgotPassword;

@@ -6,6 +6,7 @@ import Header from "../../molecules/Header";
 import Input from "../../atoms/Input";
 import Button from "../../atoms/Button";
 import { CheckIcon } from "../../../../assets/icons";
+import { ERoutes } from "../../../navigation";
 
 // eslint-disable-next-line react/prop-types
 const Registration = ({ navigation }) => {
@@ -18,7 +19,11 @@ const Registration = ({ navigation }) => {
   return (
     <GradientPageTemplate>
       <View style={styles.wrapper}>
-        <Header navigation={navigation} />
+        <Header
+          headerText="Регистрация"
+          // eslint-disable-next-line react/prop-types
+          onClick={() => navigation.navigate(ERoutes.HOME)}
+        />
         <View style={styles.fields}>
           <Input
             label="ИНН"
@@ -57,7 +62,12 @@ const Registration = ({ navigation }) => {
             secureTextEntry
           />
         </View>
-        <Button color="welcomeBrightBlue" style={styles.createBtn}>
+        <Button
+          color="welcomeBrightBlue"
+          style={styles.createBtn}
+          // eslint-disable-next-line react/prop-types
+          onPress={() => navigation.navigate(ERoutes.LOGIN)}
+        >
           <Text style={styles.createBtnText}>Создать аккаунт</Text>
         </Button>
         <View style={styles.checkboxWrapper}>

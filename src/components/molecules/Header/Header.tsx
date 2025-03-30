@@ -2,13 +2,13 @@ import React, { FC } from "react";
 import { Text, View } from "react-native";
 import { ArrowLeftIcon } from "../../../../assets/icons";
 import { styles } from "./styles";
-import { ERoutes } from "../../../navigation";
+import { IHeader } from "./types";
 
-const Header: FC<{ navigation: any }> = ({ navigation }) => (
+const Header: FC<IHeader> = ({ onClick, headerText }) => (
   <View style={styles.header}>
-    <ArrowLeftIcon onClick={() => navigation.navigate(ERoutes.HOME)} />
+    <ArrowLeftIcon onClick={onClick} />
     <View style={styles.headerTextWrapper}>
-      <Text style={styles.headerText}>Регистрация</Text>
+      <Text style={styles.headerText}>{headerText}</Text>
     </View>
   </View>
 );

@@ -26,5 +26,7 @@ export const styles = StyleSheet.create({
     fontFamily: fonts.default_800,
     fontSize: 16,
     lineHeight: 21,
+    borderWidth: 1,
+    borderColor: "transparent",
   },
 });

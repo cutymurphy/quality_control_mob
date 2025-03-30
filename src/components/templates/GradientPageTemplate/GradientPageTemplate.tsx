@@ -5,12 +5,18 @@ import { StyleSheet } from "react-native";
 import { screenHeight, screenWidth } from "../../../constants/screenSize";
 import { palette } from "../../../constants/palette";
 
-const GradientPageTemplate: FC<PropsWithChildren> = ({ children }) => (
+const GradientPageTemplate: FC<
+  PropsWithChildren & { mustScroll?: boolean }
+> = ({ children, mustScroll = true }) => (
   <View style={styles.container}>
     <RadialGradientBg screenWidth={screenWidth} screenHeight={screenHeight} />
-    <ScrollView contentContainerStyle={styles.scrollContainer}>
-      {children}
-    </ScrollView>
+    {mustScroll ? (
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        {children}
+      </ScrollView>
+    ) : (
+      <View style={styles.scrollContainer}>{children}</View>
+    )}
   </View>
 );
 

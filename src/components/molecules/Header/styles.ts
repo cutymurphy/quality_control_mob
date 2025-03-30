@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     width: "100%",
     position: "relative",
+    height: 30,
   },
   headerTextWrapper: {
     position: "absolute",

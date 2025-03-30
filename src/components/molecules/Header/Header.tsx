@@ -6,7 +6,7 @@ import { IHeader } from "./types";
 
 const Header: FC<IHeader> = ({ onClick, headerText }) => (
   <View style={styles.header}>
-    <ArrowLeftIcon onClick={onClick} />
+    {onClick && <ArrowLeftIcon onClick={onClick} />}
     <View style={styles.headerTextWrapper}>
       <Text style={styles.headerText}>{headerText}</Text>
     </View>

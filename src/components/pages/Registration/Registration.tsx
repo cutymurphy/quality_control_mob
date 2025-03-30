@@ -65,7 +65,8 @@ const Registration = ({ navigation }) => {
         <Button
           color="welcomeBrightBlue"
           style={styles.createBtn}
-          onPress={() => {}}
+          // eslint-disable-next-line react/prop-types
+          onPress={() => navigation.navigate(ERoutes.SUBSCRIPTION)}
         >
           <Text style={styles.createBtnText}>Создать аккаунт</Text>
         </Button>

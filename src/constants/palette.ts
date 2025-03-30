@@ -8,6 +8,7 @@ export const baseColors = {
   darkBlue: "#2C4C9B",
   red: "#EC4F4F",
   blueTransparent: "rgba(21, 116, 224, 0.6)",
+  brightBlueTransparent: "rgba(0, 200, 255, 0.85)",
 };
 
 export const palette = {
@@ -20,6 +21,7 @@ export const palette = {
   welcomeScreenSubText: "rgba(255, 255, 255, 0.8)",
   welcomeScreenMainText: baseColors.white,
   welcomeScreenScrollNonActivePoint: "rgba(159, 159, 159, 0.7)",
+  welcomeScreenScrollActivePoint: "rgba(255, 255, 255, 0.8)",
   welcomeScreenImproveText: "rgba(255, 255, 255, 0.7)",
   welcomeScreenGradientDark: "rgba(5, 5, 5, 0.4)",
   welcomeScreenGradientLight: "rgba(107, 107, 107, 0)",
@@ -36,6 +38,7 @@ export const palette = {
   mainText: baseColors.white,
   gradientLightBlue: "#4DEDFF",
   gradientBlue: "#053D8F",
+  subscriptionCardBg: "rgba(0, 0, 0, 0.4)",
 
   // Main Screen Popups Section
   bgMainScreenPopup: baseColors.blue2,

@@ -10,6 +10,7 @@ import { palette } from "../constants/palette";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import Login from "../components/pages/Login";
 import ForgotPassword from "../components/pages/ForgotPassword";
+import Subscription from "../components/pages/Subscription";
 
 const Stack = createNativeStackNavigator();
 
@@ -31,6 +32,10 @@ export const Navigation = () => {
             <Stack.Screen
               name={ERoutes.FORGOT_PASSWORD}
               component={ForgotPassword}
+            />
+            <Stack.Screen
+              name={ERoutes.SUBSCRIPTION}
+              component={Subscription}
             />
             <Stack.Screen name={ERoutes.ANOTHER} component={AnotherPage} />
           </Stack.Navigator>

@@ -68,6 +68,11 @@ export const styles = StyleSheet.create({
     color: palette.mainText,
     fontFamily: fonts.default_700,
   },
+  confirmationInputLabel: {
+    fontSize: 12,
+    lineHeight: 17,
+    color: palette.codeTransparentText,
+  },
   codeBtn: {
     height: 27,
     width: "50%",

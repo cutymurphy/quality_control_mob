@@ -10,6 +10,7 @@ export interface IInput {
   label?: string;
   customStyles?: StyleProp<TextStyle>;
   customInputStyles?: StyleProp<TextStyle>;
+  customLabelStyles?: StyleProp<TextStyle>;
   onChangeText?: (text: string) => void;
   placeholder?: string;
   keyboardType?: KeyboardTypeOptions;

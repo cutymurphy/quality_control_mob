@@ -16,12 +16,9 @@ const Profile = () => {
   const [inn, setInn] = useState<string>("11 22 12345 0");
 
   return (
-    <PageTemplate>
+    <PageTemplate mustScroll={false}>
       <View style={styles.wrapper}>
-        <Header
-          headerText="Профиль "
-          onClick={() => navigate("Subscription")}
-        />
+        <Header headerText="Профиль" onClick={() => navigate("Subscription")} />
         <View style={styles.profileWrapper}>
           <ProfileIcon />
           <View style={styles.card}>
@@ -36,6 +33,8 @@ const Profile = () => {
                   value={email}
                   onChangeText={(val) => setEmail(val)}
                   customInputStyles={styles.input}
+                  inputMode="email"
+                  maxLength={254}
                 />
               )}
             </View>
@@ -68,7 +67,11 @@ const Profile = () => {
               <Button style={styles.btn} color="blue">
                 <Text style={styles.btnText}>Управлять подпиской</Text>
               </Button>
-              <Button style={styles.btn} color="blue">
+              <Button
+                style={styles.btn}
+                color="blue"
+                onPress={() => navigate("Admin")}
+              >
                 <Text style={styles.btnText}>Админ панель</Text>
               </Button>
             </>
@@ -84,6 +87,7 @@ const Profile = () => {
                   maxLength={6}
                   customStyles={styles.confirmationInputWrapper}
                   customInputStyles={styles.confirmationInput}
+                  customLabelStyles={styles.confirmationInputLabel}
                 />
                 <Button style={styles.codeBtn} color="darkBlue">
                   <Text style={styles.codeBtnText}>Отправить код</Text>
@@ -96,13 +100,12 @@ const Profile = () => {
               >
                 <Text style={styles.btnText}>Сохранить изменения</Text>
               </Button>
-              <Button style={styles.btn} color="blue">
-                <Text
-                  style={styles.btnText}
-                  onPress={() => setIsEditMode(false)}
-                >
-                  Отменить
-                </Text>
+              <Button
+                style={styles.btn}
+                color="blue"
+                onPress={() => setIsEditMode(false)}
+              >
+                <Text style={styles.btnText}>Отменить</Text>
               </Button>
               <View style={styles.supportTextWrapper}>
                 <Text style={styles.supportText}>Нет доступа к почте?</Text>

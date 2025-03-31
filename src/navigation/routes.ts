@@ -1,3 +1,4 @@
+import Admin from "../components/pages/Admin";
 import ForgotPassword from "../components/pages/ForgotPassword";
 import Home from "../components/pages/Home";
 import Login from "../components/pages/Login";
@@ -30,5 +31,9 @@ export const routes: IRoute[] = [
   {
     name: "Subscription",
     component: Subscription,
+  },
+  {
+    name: "Admin",
+    component: Admin,
   },
 ];

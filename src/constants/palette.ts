@@ -61,4 +61,7 @@ export const palette = {
   modalBtns: "#8DAEFF",
   sectionTransparentText: "rgba(255, 255, 255, 0.75)",
   supportTransparentText: "rgba(255, 255, 255, 0.6)",
+  codeTransparentText: "rgba(255, 255, 255, 0.7)",
+  dropdownBgTransparent: "rgba(65, 110, 223, 0.8)",
+  dropdownListBgTransparent: "rgba(65, 110, 223, 0.5)",
 };

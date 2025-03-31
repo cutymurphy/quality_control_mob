@@ -7,4 +7,5 @@ export interface IIcon {
   width?: number;
   opacity?: number;
   onClick?: (event: GestureResponderEvent) => void;
+  stroke?: number;
 }

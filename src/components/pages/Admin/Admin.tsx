@@ -11,6 +11,7 @@ import { screenWidth } from "../../../constants/screenSize";
 import Input from "../../atoms/Input";
 import Dropdown from "../../atoms/Dropdown";
 import Button from "../../atoms/Button";
+import { roles } from "../../../constants/roles";
 
 const Admin = () => {
   const initialConfidence = 0.75;
@@ -34,7 +35,7 @@ const Admin = () => {
           underlined
           onClick={() => navigate("Profile")}
         />
-        <View style={styles.profileWrapper}>
+        <View style={styles.adminWrapper}>
           <Text style={styles.subTitle}>Уверенность нейросети</Text>
           <View style={styles.sliderWrapper}>
             <Slider
@@ -84,24 +85,10 @@ const Admin = () => {
             customLabelStyles={styles.confirmationInputLabel}
           />
           <Dropdown
-            data={[
-              {
-                label: "Администратор",
-                value: "0",
-              },
-              {
-                label: "Модератор",
-                value: "1",
-              },
-              {
-                label: "Пользователь",
-                value: "2",
-              },
-              {
-                label: "Владелец",
-                value: "3",
-              },
-            ]}
+            data={roles.map((role) => ({
+              value: role.id,
+              label: role.name,
+            }))}
             value={role}
             onChange={(item) => setRole(item.value)}
             label="Роль"
@@ -113,7 +100,11 @@ const Admin = () => {
           <Button color="blue" style={styles.btn}>
             <Text style={styles.btnText}>Получить отчет</Text>
           </Button>
-          <Button color="blue" style={styles.btn}>
+          <Button
+            color="blue"
+            style={styles.btn}
+            onPress={() => navigate("AccountManagement")}
+          >
             <Text style={styles.btnText}>Управлять аккаунтами</Text>
           </Button>
           <Text style={styles.statistics}>3/15 аккаунтов</Text>

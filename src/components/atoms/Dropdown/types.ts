@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { StyleProp, ViewStyle } from "react-native";
+import { StyleProp, TextStyle, ViewStyle } from "react-native";
 
 export interface IDropdown {
   data: IDropdownData[];
@@ -9,7 +9,7 @@ export interface IDropdown {
   wrapperStyle?: StyleProp<ViewStyle>;
   dropdownStyle?: StyleProp<ViewStyle>;
   selectedTextStyle?: StyleProp<ViewStyle>;
-  labelStyle?: StyleProp<ViewStyle>;
+  labelStyle?: StyleProp<TextStyle>;
   containerStyle?: StyleProp<ViewStyle>;
   itemContainerStyle?: StyleProp<ViewStyle>;
   rightIcon?: ReactElement;

@@ -62,6 +62,7 @@ export const palette = {
   sectionTransparentText: "rgba(255, 255, 255, 0.75)",
   supportTransparentText: "rgba(255, 255, 255, 0.6)",
   codeTransparentText: "rgba(255, 255, 255, 0.7)",
+  labelTransparentText: "rgba(255, 255, 255, 0.5)",
   dropdownBgTransparent: "rgba(65, 110, 223, 0.8)",
   dropdownListBgTransparent: "rgba(65, 110, 223, 0.5)",
 };

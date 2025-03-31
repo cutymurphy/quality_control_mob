@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     padding: 28,
     alignItems: "center",
   },
-  profileWrapper: {
+  adminWrapper: {
     marginTop: 28,
     paddingHorizontal: 26,
     width: "100%",

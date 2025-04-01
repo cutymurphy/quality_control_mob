@@ -66,6 +66,13 @@ export const styles = StyleSheet.create({
     backgroundColor: palette.textFieldInFolderBg,
     height: 20,
   },
+  itemContainerStyle: {
+    paddingVertical: 6,
+  },
+  itemContainerStyleText: {
+    fontSize: 12,
+    lineHeight: 16,
+  },
   btns: {
     width: "100%",
     justifyContent: "flex-end",

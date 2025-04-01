@@ -12,6 +12,7 @@ export interface IDropdown {
   labelStyle?: StyleProp<TextStyle>;
   containerStyle?: StyleProp<ViewStyle>;
   itemContainerStyle?: StyleProp<ViewStyle>;
+  itemContainerStyleText?: StyleProp<TextStyle>;
   rightIcon?: ReactElement;
 }
 

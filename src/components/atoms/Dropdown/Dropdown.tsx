@@ -3,7 +3,7 @@ import { IDropdown, IDropdownData } from "./types";
 import { Dropdown as CustomDropdown } from "react-native-element-dropdown";
 import { styles } from "./styles";
 import { ArrowBottomIcon } from "../../../../assets/icons";
-import { Pressable, Text, View } from "react-native";
+import { Text, View } from "react-native";
 
 const Dropdown: FC<IDropdown> = ({
   data,
@@ -16,6 +16,7 @@ const Dropdown: FC<IDropdown> = ({
   labelStyle,
   containerStyle,
   itemContainerStyle,
+  itemContainerStyleText,
   rightIcon,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -25,17 +26,16 @@ const Dropdown: FC<IDropdown> = ({
     const isLast = item.value === data[data.length - 1].value;
 
     return (
-      <Pressable
+      <View
         style={[
           styles.item,
           isSelected && styles.selectedItem,
           isLast && styles.lastItem,
           itemContainerStyle,
         ]}
-        onPress={() => onChange(item)}
       >
-        <Text>{item.label}</Text>
-      </Pressable>
+        <Text style={itemContainerStyleText}>{item.label}</Text>
+      </View>
     );
   };
 
@@ -44,7 +44,7 @@ const Dropdown: FC<IDropdown> = ({
       {label && <Text style={[styles.label, labelStyle]}>{label}</Text>}
       <CustomDropdown
         data={data}
-        onChange={onChange}
+        onChange={(item: IDropdownData) => onChange(item)}
         labelField="label"
         valueField="value"
         value={value}

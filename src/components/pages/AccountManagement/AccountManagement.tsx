@@ -102,6 +102,8 @@ const AccountManagement = () => {
           wrapperStyle={styles.dropdownWrapper}
           labelStyle={styles.inputLabel}
           dropdownStyle={styles.dropdown}
+          itemContainerStyleText={styles.itemContainerStyleText}
+          itemContainerStyle={styles.itemContainerStyle}
         />
         <View style={styles.btns}>
           <Button color="management" style={styles.btn}>

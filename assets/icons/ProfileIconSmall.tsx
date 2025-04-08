@@ -14,7 +14,7 @@ const ProfileIconSmall: FC<IIcon> = ({
       stroke={color}
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeWidth={4}
+      strokeWidth={3}
       d="M30 31.5v-3a6 6 0 0 0-6-6H12a6 6 0 0 0-6 6v3m18-21a6 6 0 1 1-12 0 6 6 0 0 1 12 0"
     />
   </Svg>

@@ -16,7 +16,10 @@ export const Navigation = () => {
         <NavigationContainer>
           <StatusBar barStyle="default" />
           <Stack.Navigator
-            screenOptions={{ animation: "none", headerShown: false }}
+            screenOptions={{
+              animation: "slide_from_right",
+              headerShown: false,
+            }}
           >
             {routes.map((route) => (
               <Stack.Screen key={route.name} {...route} />

@@ -50,7 +50,7 @@ const AccountManagement = () => {
           <ProfileIconSmall />
           <Text style={styles.headerText}>{section.title}</Text>
         </View>
-        <ArrowTopIcon style={active && { transform: [{ scaleY: -1 }] }} />
+        <ArrowTopIcon style={!active && { transform: [{ scaleY: -1 }] }} />
       </View>
     );
   };

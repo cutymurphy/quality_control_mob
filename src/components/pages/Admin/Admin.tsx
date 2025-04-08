@@ -6,12 +6,13 @@ import { useTypedNavigation } from "../../../hooks/useTypedNavigation";
 import PageTemplate from "../../templates/PageTemplate";
 import { Slider } from "@miblanchard/react-native-slider";
 import { palette } from "../../../constants/palette";
-import { TooltipIcon } from "../../../../assets/icons";
+import { CrossIcon, TooltipIcon } from "../../../../assets/icons";
 import { screenWidth } from "../../../constants/screenSize";
 import Input from "../../atoms/Input";
 import Dropdown from "../../atoms/Dropdown";
 import Button from "../../atoms/Button";
 import { roles } from "../../../constants/roles";
+import Modal from "../../atoms/Modal";
 
 const Admin = () => {
   const initialConfidence = 0.75;
@@ -20,6 +21,7 @@ const Admin = () => {
   const [login, setLogin] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [role, setRole] = useState<string>("0");
+  const [isMainModalOpened, setIsMainModalOpened] = useState<boolean>(false);
 
   const sliderWidth = screenWidth - 54 * 2;
   const tooltipWidth = 39;
@@ -97,7 +99,11 @@ const Admin = () => {
           <Button color="blue" style={styles.btn}>
             <Text style={styles.btnText}>Создать суб-аккаунт</Text>
           </Button>
-          <Button color="blue" style={styles.btn}>
+          <Button
+            color="blue"
+            style={styles.btn}
+            onPress={() => setIsMainModalOpened(true)}
+          >
             <Text style={styles.btnText}>Получить отчет</Text>
           </Button>
           <Button
@@ -109,6 +115,15 @@ const Admin = () => {
           </Button>
           <Text style={styles.statistics}>3/15 аккаунтов</Text>
         </View>
+        <Modal
+          isVisible={isMainModalOpened}
+          setIsVisible={setIsMainModalOpened}
+        >
+          <View style={styles.mainModal}>
+            <CrossIcon onClick={() => setIsMainModalOpened(false)} />
+            <Text style={styles.btnText}>Управлять аккаунтами</Text>
+          </View>
+        </Modal>
       </View>
     </PageTemplate>
   );

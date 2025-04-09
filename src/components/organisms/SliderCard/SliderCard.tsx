@@ -36,7 +36,7 @@ const SliderCard: FC<ISliderCard> = ({
           </Text>
           <View style={[styles.radios, { gap: isSmallHeight ? 24 : 40 }]}>
             {radioLabels.map((label: string, index: number) => (
-              <Radio label={label} isChecked key={index} />
+              <Radio label={label} isChecked key={index} style={styles.radio} />
             ))}
           </View>
         </View>

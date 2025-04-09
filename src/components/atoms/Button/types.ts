@@ -15,4 +15,5 @@ export interface IButton {
     | "management"
     | "blueTransparent"
     | "modal";
+  customColor?: string;
 }

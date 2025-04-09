@@ -40,6 +40,9 @@ export const styles = StyleSheet.create({
     width: "100%",
     alignItems: "flex-start",
   },
+  radio: {
+    flex: 0,
+  },
   bottomView: {
     width: "100%",
     alignItems: "center",

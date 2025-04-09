@@ -13,6 +13,11 @@ import Dropdown from "../../atoms/Dropdown";
 import Button from "../../atoms/Button";
 import { roles } from "../../../constants/roles";
 import Modal from "../../atoms/Modal";
+import BlurView from "../../atoms/BlurView";
+import Radio from "../../atoms/Radio";
+import DatePicker from "../../atoms/DatePicker";
+import { IDropdownData } from "../../atoms/Dropdown/types";
+import { formats } from "../../../constants/formats";
 
 const Admin = () => {
   const initialConfidence = 0.75;
@@ -22,12 +27,24 @@ const Admin = () => {
   const [password, setPassword] = useState<string>("");
   const [role, setRole] = useState<string>("0");
   const [isMainModalOpened, setIsMainModalOpened] = useState<boolean>(false);
+  const [isSubModalOpened, setIsSubModalOpened] = useState<boolean>(false);
+  const [type, setType] = useState<"report" | "log">("report");
+  const [startDate, setStartDate] = useState<Date | null>(null);
+  const [endDate, setEndDate] = useState<Date | null>(null);
+  const [format, setFormat] = useState<string>("0");
 
   const sliderWidth = screenWidth - 54 * 2;
   const tooltipWidth = 39;
   const thumbWidth = 15;
   const percentageOffset =
     confidence * (sliderWidth - thumbWidth) + thumbWidth / 2 - tooltipWidth / 2;
+
+  const closeModals = () => {
+    if (isSubModalOpened) {
+      setIsSubModalOpened(false);
+    }
+    setIsMainModalOpened(false);
+  };
 
   return (
     <PageTemplate mustScroll={false}>
@@ -115,13 +132,111 @@ const Admin = () => {
           </Button>
           <Text style={styles.statistics}>3/15 аккаунтов</Text>
         </View>
+        {isMainModalOpened && <BlurView />}
         <Modal
           isVisible={isMainModalOpened}
           setIsVisible={setIsMainModalOpened}
         >
-          <View style={styles.mainModal}>
-            <CrossIcon onClick={() => setIsMainModalOpened(false)} />
-            <Text style={styles.btnText}>Управлять аккаунтами</Text>
+          <View style={styles.modals}>
+            <View style={styles.modal}>
+              <View style={styles.crossIconWrapper}>
+                <CrossIcon
+                  style={styles.crossIcon}
+                  onClick={() => setIsMainModalOpened(false)}
+                />
+                <Text style={styles.modalTitle}>Получить отчет</Text>
+              </View>
+              <View style={styles.modalContent}>
+                <View style={styles.row}>
+                  <Radio
+                    label="Отчет"
+                    isChecked={type === "report"}
+                    setIsChecked={() => {
+                      setType("report");
+                    }}
+                  />
+                  <View style={styles.empty} />
+                  <Radio
+                    label="Лог"
+                    isChecked={type === "log"}
+                    setIsChecked={() => {
+                      setType("log");
+                    }}
+                  />
+                </View>
+                <View style={styles.row}>
+                  <DatePicker
+                    date={startDate}
+                    setDate={(date) => setStartDate(date)}
+                  />
+                  <View style={styles.dash} />
+                  <DatePicker
+                    date={endDate}
+                    setDate={(date) => setEndDate(date)}
+                  />
+                </View>
+                <View style={styles.row}>
+                  <Dropdown
+                    wrapperStyle={styles.flex}
+                    dropdownStyle={styles.dropdownStyle}
+                    selectedTextStyle={styles.selectedTextStyle}
+                    data={formats.map((format) => ({
+                      value: format.id,
+                      label: format.name,
+                    }))}
+                    value={format}
+                    onChange={(item: IDropdownData) => setFormat(item.value)}
+                  />
+                  <View style={styles.empty} />
+                  <View style={styles.flex} />
+                </View>
+                <View style={styles.row}>
+                  <Button
+                    color="red"
+                    style={styles.btnModal}
+                    onPress={() => setIsSubModalOpened(true)}
+                  >
+                    <Text style={styles.btnModalText}>Удалить лог</Text>
+                  </Button>
+                  <View style={styles.empty} />
+                  <Button
+                    customColor={palette.modalBtn}
+                    style={styles.btnModal}
+                    onPress={closeModals}
+                  >
+                    <Text style={styles.btnModalText}>Скачать</Text>
+                  </Button>
+                </View>
+              </View>
+            </View>
+            {isSubModalOpened && (
+              <View style={styles.modal}>
+                <Text style={styles.subModalTitle}>
+                  Вы точно хотите удалить лог?
+                </Text>
+                <View style={styles.modalContent}>
+                  <View style={styles.row}>
+                    <Button
+                      color="red"
+                      style={styles.btnModal}
+                      onPress={closeModals}
+                    >
+                      <Text style={styles.btnModalTextBold}>Да</Text>
+                    </Button>
+                    <View style={styles.empty} />
+                    <Button
+                      customColor={palette.modalBtn}
+                      style={styles.btnModal}
+                      onPress={() => {
+                        setIsSubModalOpened(false);
+                      }}
+                    >
+                      <Text style={styles.btnModalTextBold}>Нет</Text>
+                    </Button>
+                  </View>
+                </View>
+              </View>
+            )}
           </View>
         </Modal>
       </View>

@@ -65,4 +65,6 @@ export const palette = {
   labelTransparentText: "rgba(255, 255, 255, 0.5)",
   dropdownBgTransparent: "rgba(65, 110, 223, 0.8)",
   dropdownListBgTransparent: "rgba(65, 110, 223, 0.5)",
+  dashBg: "#B5CAFF",
+  modalBtn: "#4B74DD",
 };

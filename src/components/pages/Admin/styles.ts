@@ -85,18 +85,83 @@ export const styles = StyleSheet.create({
     color: palette.supportTransparentText,
     marginTop: -8,
   },
-  mainModal: {
+  modals: {
+    gap: 20,
+  },
+  modal: {
     borderRadius: 14,
     backgroundColor: palette.subScreenPopupBg,
     padding: 12,
+    alignItems: "center",
   },
-  blurContainer: {
+  crossIconWrapper: {
+    width: "100%",
+    position: "relative",
+    alignItems: "center",
+  },
+  crossIcon: {
+    position: "absolute",
+    left: 0,
+  },
+  modalTitle: {
+    fontSize: 20,
+    lineHeight: 27,
+    fontWeight: 700,
+    color: palette.mainText,
+  },
+  modalContent: {
+    paddingHorizontal: "6%",
+    marginTop: 16,
+    gap: 20,
+  },
+  row: {
+    width: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 13,
+  },
+  empty: {
+    width: 16,
+  },
+  dash: {
+    width: 16,
+    height: 3,
+    borderRadius: 50,
+    backgroundColor: palette.dashBg,
+  },
+  flex: {
     flex: 1,
-    padding: 20,
-    margin: 16,
-    textAlign: "center",
-    justifyContent: "center",
-    overflow: "hidden",
-    borderRadius: 20,
+  },
+  dropdownStyle: {
+    height: 27,
+    backgroundColor: palette.dateAndListSelectsPopupBg,
+    borderRadius: 8,
+  },
+  selectedTextStyle: {
+    fontSize: 16,
+    lineHeight: 21,
+  },
+  btnModal: {
+    flex: 1,
+    borderRadius: 8,
+    height: 27,
+  },
+  btnModalText: {
+    color: palette.mainText,
+    fontSize: 16,
+    lineHeight: 21,
+    fontFamily: fonts.default_700,
+  },
+  subModalTitle: {
+    color: palette.mainText,
+    fontSize: 16,
+    lineHeight: 21,
+    fontFamily: fonts.default_800,
+  },
+  btnModalTextBold: {
+    color: palette.mainText,
+    fontSize: 16,
+    lineHeight: 21,
+    fontFamily: fonts.default_800,
   },
 });

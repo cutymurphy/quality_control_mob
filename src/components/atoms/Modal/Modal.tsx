@@ -6,7 +6,8 @@ import { screenHeight, screenWidth } from "../../../constants/screenSize";
 const Modal: FC<IModal> = ({ children, isVisible, setIsVisible }) => (
   <NativeModal
     isVisible={isVisible}
-    backdropOpacity={0.8}
+    hasBackdrop={true}
+    backdropColor="transparent"
     deviceHeight={screenHeight}
     deviceWidth={screenWidth}
     hideModalContentWhileAnimating

@@ -31,7 +31,7 @@ const BlurView = () => (
                 right:0;
                 bottom: 0;
                 left: 0;
-                background: ${"rgba(217, 217, 217, 0.01)"};
+                background: ${"rgba(217, 217, 217, 0)"};
                 -webkit-backdrop-filter: blur(8px);
                 backdrop-filter: blur(8px);"
                 />

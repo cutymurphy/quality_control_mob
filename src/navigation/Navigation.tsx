@@ -2,9 +2,9 @@ import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { routes } from "./routes";
-import { StyleSheet, StatusBar } from "react-native";
+import { StyleSheet, StatusBar, View } from "react-native";
 import { palette } from "../constants/palette";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import { TypeRootStackParamList } from "./types";
 
 const Stack = createNativeStackNavigator<TypeRootStackParamList>();
@@ -12,9 +12,9 @@ const Stack = createNativeStackNavigator<TypeRootStackParamList>();
 export const Navigation = () => {
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <NavigationContainer>
-          <StatusBar barStyle="default" />
+          <StatusBar barStyle="light-content" hidden />
           <Stack.Navigator
             screenOptions={{
               animation: "slide_from_right",
@@ -26,7 +26,7 @@ export const Navigation = () => {
             ))}
           </Stack.Navigator>
         </NavigationContainer>
-      </SafeAreaView>
+      </View>
     </SafeAreaProvider>
   );
 };

@@ -2,12 +2,13 @@ import React, { FC, PropsWithChildren } from "react";
 import { View, ScrollView } from "react-native";
 import { StyleSheet } from "react-native";
 import { palette } from "../../../constants/palette";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const PageTemplate: FC<PropsWithChildren & { mustScroll?: boolean }> = ({
   children,
   mustScroll = true,
 }) => (
-  <View style={styles.container}>
+  <SafeAreaView style={styles.container}>
     {mustScroll ? (
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         {children}
@@ -15,7 +16,7 @@ const PageTemplate: FC<PropsWithChildren & { mustScroll?: boolean }> = ({
     ) : (
       <View style={styles.scrollContainer}>{children}</View>
     )}
-  </View>
+  </SafeAreaView>
 );
 
 export const styles = StyleSheet.create({

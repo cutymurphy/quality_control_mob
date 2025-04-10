@@ -4,11 +4,12 @@ import RadialGradientBg from "../../atoms/RadialGradient";
 import { StyleSheet } from "react-native";
 import { screenHeight, screenWidth } from "../../../constants/screenSize";
 import { palette } from "../../../constants/palette";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const GradientPageTemplate: FC<
   PropsWithChildren & { mustScroll?: boolean }
 > = ({ children, mustScroll = true }) => (
-  <View style={styles.container}>
+  <SafeAreaView style={styles.container}>
     <RadialGradientBg screenWidth={screenWidth} screenHeight={screenHeight} />
     {mustScroll ? (
       <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -17,13 +18,13 @@ const GradientPageTemplate: FC<
     ) : (
       <View style={styles.scrollContainer}>{children}</View>
     )}
-  </View>
+  </SafeAreaView>
 );
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: palette.bg,
+    backgroundColor: palette.gradientBlue,
   },
   scrollContainer: {
     flexGrow: 1,

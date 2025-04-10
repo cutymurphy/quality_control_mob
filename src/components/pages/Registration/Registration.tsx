@@ -6,16 +6,28 @@ import Header from "../../molecules/Header";
 import Input from "../../atoms/Input";
 import Button from "../../atoms/Button";
 import { CheckIcon } from "../../../../assets/icons";
-import { useTypedNavigation } from "../../../hooks/useTypedNavigation";
+import { useAuthNavigation } from "../../../hooks/useTypedNavigation";
+import useAuthStore from "../../../hooks/useAuthStore";
+import uuid from "react-native-uuid";
 
 const Registration = () => {
-  const { navigate } = useTypedNavigation();
+  const { navigate } = useAuthNavigation();
+  const { setUser } = useAuthStore();
 
   const [inn, setInn] = useState<number | null>();
   const [email, setEmail] = useState<string>("");
   const [code, setCode] = useState<number | null>();
   const [password, setPassword] = useState<string>("");
   const [isChecked, setIsChecked] = useState<boolean>(false);
+
+  const register = () => {
+    setUser({
+      id: uuid.v4(),
+      inn: inn ? inn.toString() : "",
+      email,
+      password,
+    });
+  };
 
   return (
     <GradientPageTemplate>
@@ -62,7 +74,7 @@ const Registration = () => {
         <Button
           color="welcomeBrightBlue"
           style={styles.createBtn}
-          onPress={() => navigate("Subscription")}
+          onPress={register}
         >
           <Text style={styles.createBtnText}>Создать аккаунт</Text>
         </Button>

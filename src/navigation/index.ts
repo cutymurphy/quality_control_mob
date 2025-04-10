@@ -1,2 +1,2 @@
 export { Navigation } from "./Navigation";
-export { TypeRootStackParamList } from "./types";
+export { TypeAuthStackParamList, TypeMainStackParamList } from "./types";

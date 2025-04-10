@@ -6,11 +6,11 @@ import GradientPageTemplate from "../../templates/GradientPageTemplate";
 import { screenWidth } from "../../../constants/screenSize";
 import { LogoIcon, SolarPanelIcon, WaveIcon } from "../../../../assets/icons";
 import Button from "../../atoms/Button";
-import { useTypedNavigation } from "../../../hooks/useTypedNavigation";
+import { useAuthNavigation } from "../../../hooks/useTypedNavigation";
 
 const Home = () => {
-  const { navigate } = useTypedNavigation();
-  
+  const { navigate } = useAuthNavigation();
+
   return (
     <GradientPageTemplate>
       <View style={styles.wrapper}>

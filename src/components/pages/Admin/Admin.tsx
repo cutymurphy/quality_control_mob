@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Text, View } from "react-native";
 import { styles } from "./styles";
 import Header from "../../molecules/Header";
-import { useTypedNavigation } from "../../../hooks/useTypedNavigation";
+import { useMainNavigation } from "../../../hooks/useTypedNavigation";
 import PageTemplate from "../../templates/PageTemplate";
 import { Slider } from "@miblanchard/react-native-slider";
 import { palette } from "../../../constants/palette";
@@ -21,7 +21,7 @@ import { formats } from "../../../constants/formats";
 
 const Admin = () => {
   const initialConfidence = 0.75;
-  const { navigate } = useTypedNavigation();
+  const { navigate } = useMainNavigation();
   const [confidence, setConfidence] = useState<number>(initialConfidence);
   const [login, setLogin] = useState<string>("");
   const [password, setPassword] = useState<string>("");

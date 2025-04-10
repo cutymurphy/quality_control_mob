@@ -5,10 +5,24 @@ import Home from "../components/pages/Home";
 import Login from "../components/pages/Login";
 import Profile from "../components/pages/Profile";
 import Registration from "../components/pages/Registration";
-import Subscription from "../components/pages/Subscription";
-import { IRoute } from "./types";
+import { IAuthRoute, IMainRoute } from "./types";
 
-export const routes: IRoute[] = [
+export const mainRoutes: IMainRoute[] = [
+  {
+    name: "Profile",
+    component: Profile,
+  },
+  {
+    name: "Admin",
+    component: Admin,
+  },
+  {
+    name: "AccountManagement",
+    component: AccountManagement,
+  },
+];
+
+export const authRoutes: IAuthRoute[] = [
   {
     name: "Home",
     component: Home,
@@ -22,23 +36,7 @@ export const routes: IRoute[] = [
     component: Login,
   },
   {
-    name: "Profile",
-    component: Profile,
-  },
-  {
     name: "Registration",
     component: Registration,
-  },
-  {
-    name: "Subscription",
-    component: Subscription,
-  },
-  {
-    name: "Admin",
-    component: Admin,
-  },
-  {
-    name: "AccountManagement",
-    component: AccountManagement,
   },
 ];

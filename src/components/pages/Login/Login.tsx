@@ -5,10 +5,10 @@ import GradientPageTemplate from "../../templates/GradientPageTemplate";
 import Header from "../../molecules/Header";
 import Input from "../../atoms/Input";
 import Button from "../../atoms/Button";
-import { useTypedNavigation } from "../../../hooks/useTypedNavigation";
+import { useAuthNavigation } from "../../../hooks/useTypedNavigation";
 
 const Login = () => {
-  const { navigate } = useTypedNavigation();
+  const { navigate } = useAuthNavigation();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 

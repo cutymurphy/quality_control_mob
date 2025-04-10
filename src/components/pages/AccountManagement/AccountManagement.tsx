@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PageTemplate from "../../templates/PageTemplate";
 import { Pressable, Text, View } from "react-native";
 import Header from "../../molecules/Header";
-import { useTypedNavigation } from "../../../hooks/useTypedNavigation";
+import { useMainNavigation } from "../../../hooks/useTypedNavigation";
 import { styles } from "./styles";
 import Accordion from "react-native-collapsible/Accordion";
 import { ISection } from "./types";
@@ -13,7 +13,7 @@ import { roles } from "../../../constants/roles";
 import Button from "../../atoms/Button";
 
 const AccountManagement = () => {
-  const { navigate } = useTypedNavigation();
+  const { navigate } = useMainNavigation();
   const [activeSections, setActiveSections] = useState<number[]>([]);
   const [sections, setSections] = useState<ISection[]>([
     {

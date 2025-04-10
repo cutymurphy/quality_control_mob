@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { Text, View } from "react-native";
 import { styles } from "./styles";
 import Header from "../../molecules/Header";
-import { useTypedNavigation } from "../../../hooks/useTypedNavigation";
+import { useMainNavigation } from "../../../hooks/useTypedNavigation";
 import PageTemplate from "../../templates/PageTemplate";
 import { ProfileIcon } from "../../../../assets/icons";
 import Button from "../../atoms/Button";
 import Input from "../../atoms/Input";
 
 const Profile = () => {
-  const { navigate } = useTypedNavigation();
+  const { navigate } = useMainNavigation();
   const [isEditMode, setIsEditMode] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("admin@factory.com");
   const [code, setCode] = useState<number | null>();
@@ -18,7 +18,8 @@ const Profile = () => {
   return (
     <PageTemplate mustScroll={false}>
       <View style={styles.wrapper}>
-        <Header headerText="Профиль" onClick={() => navigate("Subscription")} />
+        {/* TO-DO: change profile navigation */}
+        <Header headerText="Профиль" onClick={() => navigate("Profile")} />
         <View style={styles.profileWrapper}>
           <ProfileIcon />
           <View style={styles.card}>

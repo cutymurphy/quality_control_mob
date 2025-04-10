@@ -1,17 +1,23 @@
 import { ComponentType } from "react";
 
-export interface IRoute {
-  name: keyof TypeRootStackParamList;
+export interface IAuthRoute {
+  name: keyof TypeAuthStackParamList;
   component: ComponentType;
 }
 
-export type TypeRootStackParamList = {
+export interface IMainRoute {
+  name: keyof TypeMainStackParamList;
+  component: ComponentType;
+}
+
+export type TypeAuthStackParamList = {
   Home: undefined;
-  Another: undefined;
   Registration: undefined;
   Login: undefined;
   ForgotPassword: undefined;
-  Subscription: undefined;
+};
+
+export type TypeMainStackParamList = {
   Profile: undefined;
   Admin: undefined;
   AccountManagement: undefined;

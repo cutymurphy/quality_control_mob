@@ -8,10 +8,10 @@ import { slidersInfo } from "./types";
 import Button from "../../atoms/Button";
 import { ArrowLeftIcon, ArrowRightIcon } from "../../../../assets/icons";
 import { screenWidth } from "../../../constants/screenSize";
-import { useTypedNavigation } from "../../../hooks/useTypedNavigation";
+import useAuthStore from "../../../hooks/useAuthStore";
 
 const Subscription = () => {
-  const { navigate } = useTypedNavigation();
+  const { setUserField } = useAuthStore();
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const flatListRef = useRef<FlatList>(null);
 
@@ -43,11 +43,7 @@ const Subscription = () => {
                 description={item.description}
                 radioLabels={item.radioLabels}
                 price={item.price}
-                onPress={() => {
-                  if (currentSlide === 0) {
-                    navigate("Profile");
-                  }
-                }}
+                onPress={() => setUserField("subscription", item.id.toString())}
               />
             )}
             keyExtractor={({ id }) => id.toString()}

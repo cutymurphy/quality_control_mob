@@ -64,14 +64,14 @@ export const styles = StyleSheet.create({
     color: palette.subTextMainScreenPopup,
   },
   dropdownWrapper: {
-    width: "54%",
+    width: "70%",
     marginBottom: 28,
   },
   btn: {
     marginBottom: 20,
     height: 28,
     borderRadius: 6,
-    minWidth: "65%",
+    minWidth: "70%",
   },
   btnText: {
     fontSize: 16,
@@ -135,11 +135,11 @@ export const styles = StyleSheet.create({
   dropdownStyle: {
     height: 27,
     backgroundColor: palette.dateAndListSelectsPopupBg,
-    borderRadius: 8,
   },
   selectedTextStyle: {
     fontSize: 16,
-    lineHeight: 21,
+    lineHeight: 16,
+    fontFamily: fonts.default_700,
   },
   btnModal: {
     flex: 1,

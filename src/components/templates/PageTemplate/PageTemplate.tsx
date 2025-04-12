@@ -1,21 +1,40 @@
 import React, { FC, PropsWithChildren } from "react";
-import { View, ScrollView } from "react-native";
+import {
+  View,
+  ScrollView,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 import { StyleSheet } from "react-native";
 import { palette } from "../../../constants/palette";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const PageTemplate: FC<PropsWithChildren & { mustScroll?: boolean }> = ({
-  children,
-  mustScroll = true,
-}) => (
+const PageTemplate: FC<
+  PropsWithChildren & {
+    mustScroll?: boolean;
+    onPress?: () => void;
+  }
+> = ({ children, mustScroll = true, onPress }) => (
   <SafeAreaView style={styles.container}>
-    {mustScroll ? (
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
-        {children}
-      </ScrollView>
-    ) : (
-      <View style={styles.scrollContainer}>{children}</View>
-    )}
+    <TouchableWithoutFeedback
+      onPress={() => {
+        Keyboard.dismiss();
+        if (onPress) {
+          onPress();
+        }
+      }}
+    >
+      {mustScroll ? (
+        <ScrollView
+          contentContainerStyle={styles.scrollContainer}
+          nestedScrollEnabled
+        >
+          {children}
+        </ScrollView>
+      ) : (
+        <View style={styles.scrollContainer}>{children}</View>
+      )}
+    </TouchableWithoutFeedback>
   </SafeAreaView>
 );
 

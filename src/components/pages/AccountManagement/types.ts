@@ -1,4 +1,4 @@
-export interface ISection {
+export interface IUserSection {
   id: string;
   title: string;
   login: string;

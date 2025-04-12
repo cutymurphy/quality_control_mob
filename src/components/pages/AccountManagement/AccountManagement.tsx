@@ -1,45 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PageTemplate from "../../templates/PageTemplate";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, Text, TouchableWithoutFeedback, View } from "react-native";
 import Header from "../../molecules/Header";
 import { useMainNavigation } from "../../../hooks/useTypedNavigation";
 import { styles } from "./styles";
 import Accordion from "react-native-collapsible/Accordion";
-import { ISection } from "./types";
+import { IUserSection } from "./types";
 import { ArrowTopIcon, ProfileIconSmall } from "../../../../assets/icons";
 import Input from "../../atoms/Input";
 import Dropdown from "../../atoms/Dropdown";
 import { roles } from "../../../constants/roles";
 import Button from "../../atoms/Button";
+import { palette } from "../../../constants/palette";
+import { users } from "../../../constants/users";
 
 const AccountManagement = () => {
   const { navigate } = useMainNavigation();
   const [activeSections, setActiveSections] = useState<number[]>([]);
-  const [sections, setSections] = useState<ISection[]>([
-    {
-      id: "0",
-      title: "qwerty12345",
-      login: "",
-      password: "",
-      role: "0",
-    },
-    {
-      id: "1",
-      title: "xdd",
-      login: "",
-      password: "",
-      role: "1",
-    },
-    {
-      id: "2",
-      title: "admin",
-      login: "",
-      password: "",
-      role: "2",
-    },
-  ]);
+  const [sections, setSections] = useState<IUserSection[]>([...users]);
+  const [isDdOpen, setIsDdOpen] = useState<boolean>(false);
 
-  const renderHeader = (section: ISection) => {
+  const closeDd = () => {
+    if (isDdOpen) {
+      setIsDdOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    closeDd();
+  }, [activeSections]);
+
+  const renderHeader = (section: IUserSection) => {
     const active =
       activeSections.length > 0 &&
       sections[activeSections[0]].title === section.title;
@@ -55,7 +46,7 @@ const AccountManagement = () => {
     );
   };
 
-  const renderContent = (section: ISection) => {
+  const renderContent = (section: IUserSection) => {
     return (
       <View style={styles.content}>
         <Input
@@ -91,19 +82,24 @@ const AccountManagement = () => {
             label: role.name,
           }))}
           value={section.role}
-          onChange={(item) =>
+          setValue={(item) =>
             setSections(
               sections.map((sec) =>
-                sec.id === section.id ? { ...sec, role: item.value } : sec
+                sec.id === section.id ? { ...sec, role: item } : sec
               )
             )
           }
+          isOpen={isDdOpen}
+          setIsOpen={setIsDdOpen}
           label="Роль"
-          wrapperStyle={styles.dropdownWrapper}
+          wrapperStyle={[
+            styles.dropdownWrapper,
+            { marginBottom: isDdOpen ? 100 : 18 },
+          ]}
           labelStyle={styles.inputLabel}
           dropdownStyle={styles.dropdown}
-          itemContainerStyleText={styles.itemContainerStyleText}
           itemContainerStyle={styles.itemContainerStyle}
+          borderColor={palette.textFieldInFolderBg}
         />
         <View style={styles.btns}>
           <Button color="management" style={styles.btn}>
@@ -119,23 +115,25 @@ const AccountManagement = () => {
 
   return (
     <PageTemplate>
-      <View style={styles.wrapper}>
-        <Header
-          headerText="Управление аккаунтами"
-          onClick={() => navigate("Admin")}
-        />
-        <View style={styles.managerWrapper}>
-          <Accordion
-            containerStyle={styles.accordion}
-            sections={sections}
-            activeSections={activeSections}
-            renderHeader={renderHeader}
-            renderContent={renderContent}
-            onChange={setActiveSections}
-            touchableComponent={Pressable}
+      <TouchableWithoutFeedback onPress={closeDd}>
+        <View style={styles.wrapper}>
+          <Header
+            headerText="Управление аккаунтами"
+            onClick={() => navigate("Admin")}
           />
+          <View style={styles.managerWrapper}>
+            <Accordion
+              containerStyle={styles.accordion}
+              sections={sections}
+              activeSections={activeSections}
+              renderHeader={renderHeader}
+              renderContent={renderContent}
+              onChange={setActiveSections}
+              touchableComponent={Pressable}
+            />
+          </View>
         </View>
-      </View>
+      </TouchableWithoutFeedback>
     </PageTemplate>
   );
 };

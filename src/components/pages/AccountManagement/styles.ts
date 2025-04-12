@@ -55,7 +55,6 @@ export const styles = StyleSheet.create({
   },
   dropdownWrapper: {
     width: "60%",
-    marginBottom: 18,
   },
   dropdownLabel: {
     color: palette.labelTransparentText,
@@ -67,11 +66,7 @@ export const styles = StyleSheet.create({
     height: 20,
   },
   itemContainerStyle: {
-    paddingVertical: 6,
-  },
-  itemContainerStyleText: {
-    fontSize: 12,
-    lineHeight: 16,
+    paddingVertical: 8,
   },
   btns: {
     width: "100%",

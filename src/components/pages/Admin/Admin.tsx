@@ -16,7 +16,6 @@ import Modal from "../../atoms/Modal";
 import BlurView from "../../atoms/BlurView";
 import Radio from "../../atoms/Radio";
 import DatePicker from "../../atoms/DatePicker";
-import { IDropdownData } from "../../atoms/Dropdown/types";
 import { formats } from "../../../constants/formats";
 
 const Admin = () => {
@@ -32,6 +31,8 @@ const Admin = () => {
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
   const [format, setFormat] = useState<string>("0");
+  const [isRoleDdOpen, setIsRoleDdOpen] = useState<boolean>(false);
+  const [isFormatDdOpen, setIsFormatDdOpen] = useState<boolean>(false);
 
   const sliderWidth = screenWidth - 54 * 2;
   const tooltipWidth = 39;
@@ -44,10 +45,22 @@ const Admin = () => {
       setIsSubModalOpened(false);
     }
     setIsMainModalOpened(false);
+    if (isFormatDdOpen) {
+      setIsFormatDdOpen(false);
+    }
+  };
+
+  const closeDropdowns = () => {
+    if (isRoleDdOpen) {
+      setIsRoleDdOpen(false);
+    }
+    if (isFormatDdOpen) {
+      setIsFormatDdOpen(false);
+    }
   };
 
   return (
-    <PageTemplate mustScroll={false}>
+    <PageTemplate mustScroll={false} onPress={closeDropdowns}>
       <View style={styles.wrapper}>
         <Header
           headerText="Админ панель"
@@ -109,9 +122,11 @@ const Admin = () => {
               label: role.name,
             }))}
             value={role}
-            onChange={(item) => setRole(item.value)}
+            setValue={setRole}
             label="Роль"
             wrapperStyle={styles.dropdownWrapper}
+            isOpen={isRoleDdOpen}
+            setIsOpen={setIsRoleDdOpen}
           />
           <Button color="blue" style={styles.btn}>
             <Text style={styles.btnText}>Создать суб-аккаунт</Text>
@@ -136,6 +151,11 @@ const Admin = () => {
         <Modal
           isVisible={isMainModalOpened}
           setIsVisible={setIsMainModalOpened}
+          onPress={() => {
+            if (isFormatDdOpen) {
+              setIsFormatDdOpen(false);
+            }
+          }}
         >
           <View style={styles.modals}>
             <View style={styles.modal}>
@@ -177,15 +197,18 @@ const Admin = () => {
                 </View>
                 <View style={styles.row}>
                   <Dropdown
-                    wrapperStyle={styles.flex}
-                    dropdownStyle={styles.dropdownStyle}
-                    selectedTextStyle={styles.selectedTextStyle}
                     data={formats.map((format) => ({
                       value: format.id,
                       label: format.name,
                     }))}
                     value={format}
-                    onChange={(item: IDropdownData) => setFormat(item.value)}
+                    setValue={setFormat}
+                    isOpen={isFormatDdOpen}
+                    setIsOpen={setIsFormatDdOpen}
+                    wrapperStyle={styles.flex}
+                    dropdownStyle={styles.dropdownStyle}
+                    selectedTextStyle={styles.selectedTextStyle}
+                    borderColor={palette.dateAndListSelectsPopupBg}
                   />
                   <View style={styles.empty} />
                   <View style={styles.flex} />
